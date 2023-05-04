@@ -54,7 +54,7 @@ unset(_cmake_expected_targets)
 add_library(glm INTERFACE IMPORTED)
 
 set_target_properties(glm PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/Ramon Garcia/Documents/OpenGL_Praktikum/libs/glm-master"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Users/Ramon Garcia/Documents/Visual Computing/VisualComputing/Practice1/OpenGL_Praktikum/libs/glm-master"
 )
 
 # This file does not depend on other imported targets which have

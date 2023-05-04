@@ -18,7 +18,7 @@ bool Scene::init()
 		m_assets.addShaderProgram("shader", AssetManager::createShaderProgram("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl"));
 		m_shader = m_assets.getShaderProgram("shader");
         m_shader->use();
-
+        /*Ejercicio 2
         float vertices[] = {-0.5, -0.5, 0.0, 0.0, 1.0,
                             0.5, -0.5, 0.0, 0.0, 1.0,
                             0.5, 0.5, 0.0, 1.0, 0.0,
@@ -28,21 +28,60 @@ bool Scene::init()
         int indices[] = {0, 1, 2,
                          0, 2, 4,
                          4, 2, 3};
+                         */
+        //Ejercicio 3
+        float vertices[] = {
+                -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,   // Posición y color del primer vértice
+                -0.4f, 0.5f, 0.0f, 0.0f, 1.0f,   // Posición y color del segundo vértice
+                -0.4f, -0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del tercer vértice
+                -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del cuarto vértice
 
-        //VBO
+                // Rectángulo 2 (Parte superior)
+                -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del primer vértice
+                0.0f, 0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del segundo vértice
+                0.0f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del tercer vértice
+                -0.5f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del cuarto vértice
+
+                // Rectángulo 3 (Parte central)
+                -0.05f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del primer vértice
+                0.0f, 0.0f, 0.0f, 0.0f, 1.0f,   // Posición y color del segundo vértice
+                -0.05f, 0.0f, 0.0f, 0.0f, 1.0f,   // Posición y color del tercer vértice
+                0.0f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del cuarto vértice
+
+                // Rectángulo 4 (Parte inferior)
+                0.0f, 0.0f, 0.0f, 0.0f, 1.0f, // Posición y color del primer vértice
+                -0.4f, 0.0f, 0.0f, 0.0f, 1.0f, // Posición y color del segundo vértice
+                -0.4f, -0.1f, 0.0f, 0.0f, 1.0f, // Posición y color del tercer vértice
+
+        };
+
+        unsigned int indices[] = {
+                0, 1, 2,   // primer rectángulo
+                0, 2, 3,
+                4, 5, 6,   // segundo rectángulo
+                4, 6, 7,
+                8, 11, 10,  // tercer rectángulo
+                9, 10, 11,
+                12, 13, 14 //cuarto
+        };
+
+
+
+        //Configurar VBO
         glGenBuffers(1,&vboID);
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
         glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);
 
-        //VAO
+        //Configurar VAO
         glGenVertexArrays(1, &vaoID);
         glBindVertexArray(vaoID);
 
         // describir VBO en VAO //
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 24, 0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, 5* sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 24, (void*)12);
+        glVertexAttribPointer(1, 3, GL_FLOAT, false, 5* sizeof(float), (void*)(3* sizeof(float)));
         glEnableVertexAttribArray(1);
+
 
         //Crear y vincular IBO
         GLuint iboID;
@@ -62,11 +101,10 @@ bool Scene::init()
 
 void Scene::render(float dt)
 {
-
+    m_shader->use();
     glBindVertexArray(vaoID);
-    //count los indices que tienes
-    glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
-    // los buenos programadores deben reiniciar //
+    //Es un nueve en el ejercicio 1
+    glDrawElements(GL_TRIANGLES, 21, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 
 
