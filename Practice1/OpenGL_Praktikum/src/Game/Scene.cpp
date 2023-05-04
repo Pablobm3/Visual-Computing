@@ -30,6 +30,7 @@ bool Scene::init()
                          4, 2, 3};
                          */
         //Ejercicio 3
+        /*
         float vertices[] = {
                 -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,   // Posición y color del primer vértice
                 -0.4f, 0.5f, 0.0f, 0.0f, 1.0f,   // Posición y color del segundo vértice
@@ -63,6 +64,41 @@ bool Scene::init()
                 8, 11, 10,  // tercer rectángulo
                 9, 10, 11,
                 12, 13, 14 //cuarto
+        };*/
+        //Ejercicio 4
+        float vertices[] = {
+                -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,   // Posición y color del primer vértice
+                -0.4f, 0.5f, 0.0f, 0.0f, 1.0f,   // Posición y color del segundo vértice
+                -0.4f, -0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del tercer vértice
+                -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del cuarto vértice
+
+                // Rectángulo 2 (Parte superior)
+                -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del primer vértice
+                0.0f, 0.5f, 0.0f, 0.0f, 1.0f,  // Posición y color del segundo vértice
+                0.0f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del tercer vértice
+                -0.5f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del cuarto vértice
+
+                // Rectángulo 3 (Parte central)
+                -0.05f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del primer vértice
+                0.0f, 0.0f, 0.0f, 0.0f, 1.0f,   // Posición y color del segundo vértice
+                -0.05f, 0.0f, 0.0f, 0.0f, 1.0f,   // Posición y color del tercer vértice
+                0.0f, 0.4f, 0.0f, 0.0f, 1.0f,  // Posición y color del cuarto vértice
+
+                // Rectángulo 4 (Parte inferior)
+                0.0f, 0.0f, 0.0f, 0.0f, 1.0f, // Posición y color del primer vértice
+                -0.4f, 0.0f, 0.0f, 0.0f, 1.0f, // Posición y color del segundo vértice
+                -0.4f, -0.1f, 0.0f, 0.0f, 1.0f, // Posición y color del tercer vértice
+
+        };
+
+        unsigned int indices[] = {
+                0, 2, 1,   // primer rectángulo
+                3, 2, 0,
+                6, 5, 4,   // segundo rectángulo
+                6, 4, 7,
+                11, 8, 10,  // tercer rectángulo
+                9, 11, 10,
+                12, 13, 14 //cuarto
         };
 
 
@@ -91,6 +127,11 @@ bool Scene::init()
         //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         std::cout << "Scene initialization done\n";
+        //Ejercicio 4
+        glEnable(GL_CULL_FACE);
+        glFrontFace(GL_CCW);
+        glCullFace(GL_BACK);
+
         return true;
 	}
 	catch (std::exception& ex)
