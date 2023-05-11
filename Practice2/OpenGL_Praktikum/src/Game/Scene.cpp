@@ -69,17 +69,47 @@ bool Scene::init()
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         T1 = new Transform;
-        T1->rotate(glm::vec3(0.3, 0.3, 0.0));
+        T1->rotate(glm::vec3(0.0, 0.3, 0.0));
 
         //Head
         T2 = new Transform;
-        T2->scale(glm::vec3(0.2f, 0.2f, 0.2f));
-        T2->translate(glm::vec3(0.0f, 0.4f, 0));
+        T2->scale(glm::vec3(0.1f, 0.2f, 0.1f));
+        T2->translate(glm::vec3(0.0f, 0.57f, 0));
 
         //Body
         T3 = new Transform;
-        T3->scale(glm::vec3(0.3f, 0.5f, 0.3f));
-        T3->translate(glm::vec3(0.0f, 0.0f, 0));
+        T3->scale(glm::vec3(0.25f, 0.5f, 0.1f));
+        T3->translate(glm::vec3(0.0f, 0.2f, 0));
+
+        //Left Leg
+        T4 = new Transform;
+        T4->scale(glm::vec3(0.08f, 0.6f, 0.1f));
+        T4->translate(glm::vec3(-0.085f, -0.37f, 0));
+
+        //Right Leg
+        T5 = new Transform;
+        T5->scale(glm::vec3(0.08f, 0.6f, 0.1f));
+        T5->translate(glm::vec3(0.085f, -0.37f, 0));
+
+        //Upper Right arm
+        T6 = new Transform;
+        T6->scale(glm::vec3(0.03f, 0.25f, 0.1f));
+        T6->translate(glm::vec3(0.18f, 0.325f, 0));
+
+        //Down Right arm
+        T7 = new Transform;
+        T7->scale(glm::vec3(0.03f, 0.25f, 0.1f));
+        T7->translate(glm::vec3(0.18f, 0.07f, 0));
+
+        //Upper Left arm
+        T8 = new Transform;
+        T8->scale(glm::vec3(0.03f, 0.25f, 0.1f));
+        T8->translate(glm::vec3(-0.18f, 0.325f, 0));
+
+        //Down Left arm
+        T9 = new Transform;
+        T9->scale(glm::vec3(0.03f, 0.25f, 0.1f));
+        T9->translate(glm::vec3(-0.18f, 0.07f, 0));
 
         // OpenGL States
         glEnable(GL_CULL_FACE);
@@ -87,8 +117,11 @@ bool Scene::init()
         glCullFace(GL_BACK);
 
         // Set Background clear color
-        glClearColor(0.3f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_GREATER);
+        glClearDepth(0.0);
 
         std::cout << "Scene initialization done\n";
         return true;
@@ -106,27 +139,55 @@ void Scene::render(float dt)
     // bind correct VAO
     glBindVertexArray(vaoID);
 
-
+    T1->rotate(glm::vec3(0, 0.2 * dt, 0));
 
     //Body
     m_shader->setUniform("mm",
                          T1->getTransformMatrix() * T3->getTransformMatrix(),
                          false);
-
-
-    glm::vec3 colorAdjustment = glm::vec3(1.0f, 1.0f, 1.0f);
-    m_shader->setUniform("colorAdjustment", colorAdjustment);
-
-    // Render die Sonne-Geometrie
     glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
 
     //Head
     m_shader->setUniform("mm",
                          T1->getTransformMatrix() * T2->getTransformMatrix(),
                          false);
-     colorAdjustment = glm::vec3(0.5f, 0.5f, 0.0f);
-    m_shader->setUniform("colorAdjustment", colorAdjustment);
+    glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
 
+    //Right Leg
+    m_shader->setUniform("mm",
+                         T1->getTransformMatrix() * T4->getTransformMatrix(),
+                         false);
+    glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
+
+    //Left Leg
+    m_shader->setUniform("mm",
+                         T1->getTransformMatrix() * T5->getTransformMatrix(),
+                         false);
+    glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
+
+
+    //Upper Right Arm
+    m_shader->setUniform("mm",
+                         T1->getTransformMatrix() * T6->getTransformMatrix(),
+                         false);
+    glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
+
+    //Down Right Arm
+    m_shader->setUniform("mm",
+                         T1->getTransformMatrix() * T7->getTransformMatrix(),
+                         false);
+    glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
+
+    //Upper Left Arm
+    m_shader->setUniform("mm",
+                         T1->getTransformMatrix() * T8->getTransformMatrix(),
+                         false);
+    glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
+
+    //Down Left Arm
+    m_shader->setUniform("mm",
+                         T1->getTransformMatrix() * T9->getTransformMatrix(),
+                         false);
     glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
 
     // unbind VAO
@@ -136,6 +197,9 @@ void Scene::render(float dt)
 
 void Scene::update(float dt)
 {
+    angle_leg += 0.2f * dt;
+    T4->setRotation(glm::angleAxis(angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la primera pierna alrededor del eje X
+    T5->setRotation(glm::angleAxis(-angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
 
 }
 
