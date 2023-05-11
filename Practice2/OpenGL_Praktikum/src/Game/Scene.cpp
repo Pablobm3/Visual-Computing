@@ -18,7 +18,7 @@ bool Scene::init()
 		m_assets.addShaderProgram("shader", AssetManager::createShaderProgram("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl"));
 		m_shader = m_assets.getShaderProgram("shader");
         m_shader->use();
-        static const float cubeVert[] =  {0.5, -0.5, -0.5, 1, 0, 0,
+        static const float vertices[] =  {0.5, -0.5, -0.5, 1, 0, 0,
                                   0.5, -0.5, 0.5, 0, 1, 0,
                                   -0.5, -0.5, 0.5, 0, 0, 1,
                                   -0.5, -0.5, -0.5, 1, 1, 0,
@@ -27,7 +27,7 @@ bool Scene::init()
                                   -0.5, 0.5, 0.5, 1, 1, 1,
                                   -0.5, 0.5, -0.5, 0.5, 1, 0.5};
 
-        static const int cubeInd[] = {1, 2, 3,
+        static const int indices[] = {1, 2, 3,
                                      7, 6, 5,
                                      4, 5, 1,
                                      5, 6, 2,
@@ -52,9 +52,9 @@ bool Scene::init()
         glBindVertexArray(vaoID);
 
         // describir VBO en VAO //
-        glVertexAttribPointer(0, 3, GL_FLOAT, false, 5* sizeof(float), (void*)0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, false, 6* sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 3, GL_FLOAT, false, 5* sizeof(float), (void*)(3* sizeof(float)));
+        glVertexAttribPointer(1, 3, GL_FLOAT, false, 6* sizeof(float), (void*)(3* sizeof(float)));
         glEnableVertexAttribArray(1);
 
 
@@ -84,7 +84,7 @@ void Scene::render(float dt)
     m_shader->use();
     glBindVertexArray(vaoID);
     //Es un nueve en el ejercicio 1
-    glDrawElements(GL_TRIANGLES, 21, GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 
 

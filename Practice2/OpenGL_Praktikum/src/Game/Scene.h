@@ -4,6 +4,7 @@
 #include <ShaderProgram.h>
 #include <memory>
 #include <AssetManager.h>
+#include "../Framework/SceneElements/Transform.h"
 
 class Scene
 {
