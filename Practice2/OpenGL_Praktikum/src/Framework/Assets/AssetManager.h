@@ -4,7 +4,7 @@
 #include <libheaders.h>
 #include <unordered_map>
 #include <memory>
-#include <OBJLoader.h>
+
 class AssetManager
 {
 private:

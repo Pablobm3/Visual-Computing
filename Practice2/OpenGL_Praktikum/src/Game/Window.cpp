@@ -2,10 +2,10 @@
 
 
 Window::Window() :
-        OpenGLWindow(1280,				//width
-			720,				//height
+        OpenGLWindow(1200   ,				//width
+			1200,				//height
 			false,				//fullscreen
-			false,				//vsync
+			true,				//vsync
 			4,					//OpenGL Version Major
 			0,					//OpenGL Version Minor	=> Here the OpenGL Version is 3.3
 			"Visual Computing Praktikum",			//Window title

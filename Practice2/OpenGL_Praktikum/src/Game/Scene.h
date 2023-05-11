@@ -4,7 +4,7 @@
 #include <ShaderProgram.h>
 #include <memory>
 #include <AssetManager.h>
-#include "../Framework/SceneElements/Transform.h"
+#include "../SceneElements/Transform.h"
 
 class Scene
 {
@@ -29,6 +29,9 @@ private:
 	AssetManager m_assets;
     ShaderProgram* m_shader;
     GLuint vaoID, vboID;
+    int cubeIndSize;
+
+    Transform* T1, *T2, *T3;
 
 };
 

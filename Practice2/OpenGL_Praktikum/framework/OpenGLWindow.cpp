@@ -127,6 +127,7 @@ GLvoid OpenGLWindow::run()
 	init();
 	GLdouble timeDelta = 1.0f / m_updatefrequency;
 
+
 	//accumulator simulation time lag
 	GLdouble timeAccumulator = 0.0;
 
@@ -179,7 +180,7 @@ GLvoid OpenGLWindow::run()
 		}
 		while (timeAccumulator >= timeDelta)
 		{
-			update(timeDelta);			
+			update(timeDelta);
 			timeAccumulator -= timeDelta;
 		}
 
