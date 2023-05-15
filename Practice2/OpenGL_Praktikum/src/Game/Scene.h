@@ -36,6 +36,8 @@ private:
     float timer_leg = 0.0f;
     bool direction_leg = true;
     float timer;
+    int cont = 0;
+    bool changeMove = false;
 
 };
 
