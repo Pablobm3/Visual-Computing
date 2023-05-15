@@ -86,6 +86,7 @@ bool Scene::init()
         T4->scale(glm::vec3(0.08f, 0.6f, 0.1f));
         T4->translate(glm::vec3(-0.085f, -0.37f, 0));
 
+
         //Right Leg
         T5 = new Transform;
         T5->scale(glm::vec3(0.08f, 0.6f, 0.1f));
@@ -188,6 +189,21 @@ void Scene::render(float dt)
     m_shader->setUniform("mm",
                          T1->getTransformMatrix() * T9->getTransformMatrix(),
                          false);
+
+
+
+    //Generar el color
+    float animationTime;
+
+    for (int (i) = 0; (i) < 1.0; ++(i)) {
+        animationTime+=0.1;
+        glm::vec3 color = glm::vec3(sin(animationTime), 0.5, cos(animationTime)); // Ejemplo de cambio de color utilizando seno y coseno
+        m_shader->setUniform("colorAdjustment", color);
+
+    }
+
+
+
     glDrawElements(GL_TRIANGLES, cubeIndSize, GL_UNSIGNED_INT, 0);
 
     // unbind VAO
@@ -200,6 +216,8 @@ void Scene::update(float dt)
     angle_leg += 0.2f * dt;
     T4->setRotation(glm::angleAxis(angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la primera pierna alrededor del eje X
     T5->setRotation(glm::angleAxis(-angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
+    //T4->rotateAroundPoint(glm::vec3(0.08f, 0.6f, 0.1f),glm::vec3(angle_leg));
+
 
 }
 
