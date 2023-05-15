@@ -215,8 +215,7 @@ void Scene::update(float dt)
 {
     cont++;
 
-
-    if(cont==100){
+    if(cont==30){
         if(changeMove){
            changeMove=false;
         }else{
@@ -225,12 +224,24 @@ void Scene::update(float dt)
         cont= 0;
     }
 
+    if(first_move == true){
+        angle_leg = 0.02f;
+    }else angle_leg = 0.04f;
+    if(changeMove == false) {
+        T5->rotateAroundPoint(glm::vec3(1.0f, 0, 0), glm::vec3(angle_leg, 0.0f, 0.0f));
+        first_move= false;
+    }else {
+        angle_leg = 0.04f;
+        T5->rotateAroundPoint(glm::vec3(1.0f, 0, 0.0f), glm::vec3(-angle_leg, 0.0f, 0.0f));
+    }
 
+/*
     if(changeMove == false){
-        angle_leg += 0.2f * dt;
+        //angle_leg += 0.2f * dt;
         //Legs
         T4->setRotation(glm::angleAxis(angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la primera pierna alrededor del eje X
-        T5->setRotation(glm::angleAxis(-angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
+        //T5->setRotation(glm::angleAxis(-angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
+        T5->rotateAroundPoint(glm::vec3(0.0425f, 0, 0),glm::vec3(-angle_leg, 0.0f, 0.0f));
         /*
         //Left Arm
         T6->setRotation(glm::angleAxis(angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la primera pierna alrededor del eje X
@@ -240,10 +251,12 @@ void Scene::update(float dt)
         T8->setRotation(glm::angleAxis(-angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
         T9->setRotation(glm::angleAxis(-angle_leg+10, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
     */
+/*
     }else{
-        angle_leg -= 0.2f * dt;
-        T5->setRotation(glm::angleAxis(-angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la primera pierna alrededor del eje X
+        //angle_leg -= 0.2f * dt;
+        //T5->setRotation(glm::angleAxis(-angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la primera pierna alrededor del eje X
         T4->setRotation(glm::angleAxis(angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
+        T5->rotateAroundPoint(glm::vec3(0.0425f, 0, 0),glm::vec3(angle_leg, 0.0f, 0.0f));
 
         //Left Arm
         /*
@@ -253,10 +266,10 @@ void Scene::update(float dt)
         T8->setRotation(glm::angleAxis(angle_leg, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
         T9->setRotation(glm::angleAxis(angle_leg+10, glm::vec3(1.0f, 0.0f, 0.0f))); // Rota la segunda pierna alrededor del eje X
     */
-         }
-
-
 }
+
+    //first_move = false;
+
 
 OpenGLWindow * Scene::getWindow()
 {

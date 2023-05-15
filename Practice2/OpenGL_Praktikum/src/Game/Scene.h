@@ -38,6 +38,7 @@ private:
     float timer;
     int cont = 0;
     bool changeMove = false;
+    bool first_move = true;
 
 };
 
