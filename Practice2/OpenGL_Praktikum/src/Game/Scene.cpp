@@ -3,9 +3,9 @@
 #include <cmath>
 
 Scene::Scene(OpenGLWindow * window) :
-	m_window(window)
+        m_window(window)
 {
-	assert(window != nullptr);
+    assert(window != nullptr);
 }
 
 Scene::~Scene()
@@ -13,21 +13,21 @@ Scene::~Scene()
 
 bool Scene::init()
 {
-	try
-	{
-		//Load shader
-		m_assets.addShaderProgram("shader", AssetManager::createShaderProgram("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl"));
-		m_shader = m_assets.getShaderProgram("shader");
+    try
+    {
+        //Load shader
+        m_assets.addShaderProgram("shader", AssetManager::createShaderProgram("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl"));
+        m_shader = m_assets.getShaderProgram("shader");
         m_shader->use();
 
         float cubeVert[] =  {0.5, -0.5, -0.5, 1, 0, 0,
                              0.5, -0.5, 0.5, 0, 1, 0,
-                            -0.5, -0.5, 0.5, 0, 0, 1,
-                            -0.5, -0.5, -0.5, 1, 1, 0,
+                             -0.5, -0.5, 0.5, 0, 0, 1,
+                             -0.5, -0.5, -0.5, 1, 1, 0,
                              0.5, 0.5, -0.5, 1, 0, 1,
                              0.5, 0.5, 0.5, 0, 1, 1,
-                            -0.5, 0.5, 0.5, 1, 1, 1,
-                            -0.5, 0.5, -0.5, 0.5, 1, 0.5};
+                             -0.5, 0.5, 0.5, 1, 1, 1,
+                             -0.5, 0.5, -0.5, 0.5, 1, 0.5};
 
         int cubeInd[] = {1, 2, 3,
                          7, 6, 5,
@@ -126,11 +126,11 @@ bool Scene::init()
 
         std::cout << "Scene initialization done\n";
         return true;
-	}
-	catch (std::exception& ex)
-	{
-	    throw std::logic_error("Scene initialization failed:\n" + std::string(ex.what()) + "\n");
-	}
+    }
+    catch (std::exception& ex)
+    {
+        throw std::logic_error("Scene initialization failed:\n" + std::string(ex.what()) + "\n");
+    }
 }
 
 void Scene::render(float dt)
@@ -214,7 +214,7 @@ void Scene::render(float dt)
 void Scene::update(float dt) {
     cont++;
 
-    if (cont == 30) {
+    if (cont == 40) {
         if (changeMove) {
             changeMove = false;
         } else {
@@ -226,6 +226,8 @@ void Scene::update(float dt) {
     if (first_move == true) {
         angle_leg = 0.02f;
     }
+
+
     if (changeMove == false) {
         //legs
         T5->rotateAroundPoint(glm::vec3(-0.0425f, 0, 0.05f), glm::vec3(angle_leg, 0.0f, 0.0f));
@@ -241,8 +243,10 @@ void Scene::update(float dt) {
     } else {
         if (first_move) {
             first_move = false;
-            angle_leg = 0.04f;
+            angle_leg = 0.025f;
         }
+
+
         //Legs
         T5->rotateAroundPoint(glm::vec3(-0.0425f, 0, 0.05f), glm::vec3(-angle_leg, 0.0f, 0.0f));
         T4->rotateAroundPoint(glm::vec3(0.0425f, 0, 0.05f), glm::vec3(angle_leg, 0.0f, 0.0f));
@@ -259,7 +263,7 @@ void Scene::update(float dt) {
 
 OpenGLWindow * Scene::getWindow()
 {
-	return m_window;
+    return m_window;
 }
 
 void Scene::onKey(Key key, Action action, Modifier modifier)
