@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/pablo b/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum
+# Install script for directory: C:/Users/Ramon Garcia/Documents/Visual Computing/VisualComputing/Practice2/OpenGL_Praktikum
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/pablo b/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/cmake-build-debug/libs/cmake_install.cmake")
+  include("C:/Users/Ramon Garcia/Documents/Visual Computing/VisualComputing/Practice2/OpenGL_Praktikum/cmake-build-debug/libs/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/pablo b/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Ramon Garcia/Documents/Visual Computing/VisualComputing/Practice2/OpenGL_Praktikum/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

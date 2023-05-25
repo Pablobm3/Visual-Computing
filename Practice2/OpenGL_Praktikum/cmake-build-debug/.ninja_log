@@ -31,3 +31,14 @@
 21945	22150	7058594587732428	libs/stb/libstb.a	db101d7bd55505e2
 24591	24813	7058594614336115	lib/libglew32d.a	3488544380f3a40f
 5456	7002	7058700749779902	OpenGL_Praktikum.exe	b1e447b9bd2ed8d
+16	2848	7066523736429267	CMakeFiles/OpenGL_Praktikum.dir/src/Framework/SceneElements/Transform.cpp.obj	8f5bceb7947b7952
+10	3322	7066523741135641	CMakeFiles/OpenGL_Praktikum.dir/src/Framework/Assets/ShaderProgram.cpp.obj	6eda528e062eb9a2
+32	4267	7066523750604259	CMakeFiles/OpenGL_Praktikum.dir/framework/OpenGLWindow.cpp.obj	315279b52353c3ac
+38	4357	7066523751433692	CMakeFiles/OpenGL_Praktikum.dir/src/Game/Scene.cpp.obj	c89fbb6ba7300470
+23	4371	7066523751233840	CMakeFiles/OpenGL_Praktikum.dir/src/Framework/Assets/AssetManager.cpp.obj	10a32e6abe430c65
+46	4424	7066523752173568	CMakeFiles/OpenGL_Praktikum.dir/src/Game/Window.cpp.obj	fb0f61083bde53f
+3323	5937	7066523767333931	CMakeFiles/OpenGL_Praktikum.dir/framework/glerror.cpp.obj	1007b50813d0db2a
+2850	5986	7066523767852559	CMakeFiles/OpenGL_Praktikum.dir/framework/Input.cpp.obj	3cf80e891aca4b30
+4358	6773	7066523775737792	CMakeFiles/OpenGL_Praktikum.dir/src/main.cpp.obj	4e48122a33207b46
+4268	7572	7066523783711417	CMakeFiles/OpenGL_Praktikum.dir/framework/OBJLoader.cpp.obj	458bc5548018a8f1
+7573	8384	7066523791783197	OpenGL_Praktikum.exe	b1e447b9bd2ed8d

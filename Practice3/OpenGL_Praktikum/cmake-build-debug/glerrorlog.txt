@@ -1,0 +1,2 @@
+An OpenGL error occured at file: "C:/Users/Ramon Garcia/Documents/Visual Computing/VisualComputing/Practice2/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.h", line: 26:
+invalid operation

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/pablo b/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/libs/glm-master/test/ext
+# Install script for directory: C:/Users/Ramon Garcia/Documents/Visual Computing/VisualComputing/Practice2/OpenGL_Praktikum/libs/glm-master/test/ext
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
