@@ -4,12 +4,23 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/pablo/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/libs/glm-master/glm/detail/dummy.cpp" "/home/pablo/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/glm/CMakeFiles/glm_dummy.dir/detail/dummy.cpp.o"
+  "/home/pablo/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/libs/glm-master/glm/detail/glm.cpp" "/home/pablo/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/glm/CMakeFiles/glm_dummy.dir/detail/glm.cpp.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../libs/glm-master"
+  "../libs/glm-master/glm/.."
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/pablo b/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/libs/glm-master/glm/detail/dummy.cpp" "libs/glm-master/glm/CMakeFiles/glm_dummy.dir/detail/dummy.cpp.obj" "gcc" "libs/glm-master/glm/CMakeFiles/glm_dummy.dir/detail/dummy.cpp.obj.d"
-  "C:/Users/pablo b/CLionProjects/VisualComputing/Practice2/OpenGL_Praktikum/libs/glm-master/glm/detail/glm.cpp" "libs/glm-master/glm/CMakeFiles/glm_dummy.dir/detail/glm.cpp.obj" "gcc" "libs/glm-master/glm/CMakeFiles/glm_dummy.dir/detail/glm.cpp.obj.d"
   )
 
 # Targets to which this target links.

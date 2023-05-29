@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/stb.dir/stb_image.c.obj"
-  "CMakeFiles/stb.dir/stb_image.c.obj.d"
-  "CMakeFiles/stb.dir/stb_image_write.c.obj"
-  "CMakeFiles/stb.dir/stb_image_write.c.obj.d"
+  "CMakeFiles/stb.dir/stb_image.c.o"
+  "CMakeFiles/stb.dir/stb_image_write.c.o"
   "libstb.a"
   "libstb.pdb"
 )
