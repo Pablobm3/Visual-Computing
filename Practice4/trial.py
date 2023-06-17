@@ -4,7 +4,7 @@ print("OpenCV-Version: " + cv2.__version__)
 
 
 # Cargar la imagen "yoshi.png"
-img = cv2.imread("yoshi.png")
+img = cv2.imread("Practice4\yoshi.png")
 
 # Mostrar el ancho, alto y número de canales de color
 altura, ancho, canales = img.shape
@@ -32,7 +32,7 @@ cv2.rectangle(img, (centro_x - 5, centro_y - 5), (centro_x + 5, centro_y + 5), (
 img[::5, :] = 0
 
 
-mask = cv2.imread("mask.png", cv2.IMREAD_GRAYSCALE)
+mask = cv2.imread("Practice4/mask.png", cv2.IMREAD_GRAYSCALE)
 
 # Convertir la imagen Yoshi al espacio de color HSV
 img_yoshi_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
